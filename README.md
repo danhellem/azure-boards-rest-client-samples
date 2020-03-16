@@ -2,7 +2,7 @@
 REST API samples in VS Code
 
 # Environmental Settings
-`
+```
 {   
     "rest-client.environmentVariables": {
         "$shared": {              
@@ -15,4 +15,4 @@ REST API samples in VS Code
         }         
     }      
 }
-`
+```
