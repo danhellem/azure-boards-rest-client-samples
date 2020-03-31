@@ -1,0 +1,26 @@
+// https://docs.microsoft.com/en-us/rest/api/azure/devops/processes/system%20controls/update?view=azure-devops-rest-6.0#examples
+
+@processId = bb6b3199-15f0-4e99-a1c6-433e76f9ecd3
+@witRefName = Test.Bug
+
+# GET PROCESSES
+GET https://dev.azure.com/{{organization}}/_apis/work/processes?api-version=6.0-preview.2 HTTP/1.1
+Authorization: {{authorizationToken}}
+###
+
+# GET WORK ITEM TYPES
+GET https://dev.azure.com/{{organization}}/_apis/work/processes/{{processId}}/workitemtypes?api-version=6.0-preview.2 HTTP/1.1
+Authorization: {{authorizationToken}}
+
+###
+
+# SET REASON FIELD TO VISIBLE FALSE
+PATCH https://dev.azure.com/{{organization}}/_apis/work/processes/{{processId}}/workItemTypes/{{witRefName}}/layout/systemcontrols/System.Reason?api-version=6.0-preview.1 HTTP/1.1
+content-type: application/json
+Authorization: {{authorizationToken}}
+
+{
+  "visible": false
+}
+
+###
