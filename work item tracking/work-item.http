@@ -1,4 +1,4 @@
-@id = 39
+@id = 8
 
 # GET WORK ITEM
 GET https://dev.azure.com/{{organization}}/{{project}}/_apis/wit/workitems/{{id}}?api-version=5.1 HTTP/1.1
@@ -7,7 +7,22 @@ Authorization: {{authorizationToken}}
 
 ###
 
-# UPDATE A FIELD
+
+### CREATE WORK ITEM
+POST https://dev.azure.com/{{organization}}/{{project}}/_apis/wit/workitems/$Bug?api-version=5.1 HTTP/1.1
+content-type: application/json-patch+json
+Authorization: {{authorizationToken}}
+
+[
+  {
+    "op": "add",
+    "path": "/fields/System.Title",
+    "from": null,
+    "value": "Sample Bug"
+  }
+]
+
+### UPDATE A FIELD
 PATCH https://dev.azure.com/{{organization}}/_apis/wit/workitems/{{id}}?api-version=5.1 HTTP/1.1
 content-type: application/json-patch+json
 Authorization: {{authorizationToken}}
@@ -22,5 +37,23 @@ Authorization: {{authorizationToken}}
     "op": "add",
     "path": "/fields/System.State",
     "value": "Closed"
+  }
+]
+
+### CHANGE WORK ITEM TYPE
+PATCH https://dev.azure.com/{{organization}}/_apis/wit/workitems/{{id}}?api-version=5.1 HTTP/1.1
+content-type: application/json-patch+json
+Authorization: {{authorizationToken}}
+
+[
+ {
+    "op": "add",
+    "path": "/fields/System.WorkItemType",
+    "value": "Task"
+  },
+  {
+    "op": "add",
+    "path": "/fields/System.State",
+    "value": "New"
   }
 ]
