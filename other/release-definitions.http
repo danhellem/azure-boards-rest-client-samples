@@ -1,0 +1,12 @@
+
+# GET LIST OF RELEASE DEFINITIONS
+GET https://vsrm.dev.azure.com/{{organization}}/{{project}}/_apis/release/definitions?api-version=6.0-preview.4 HTTP/1.1
+Authorization: {{authorizationToken}}
+
+###
+
+@id = 1
+
+# GET RELEASE DEFINITION
+GET https://vsrm.dev.azure.com/{{organization}}/{{project}}/_apis/release/definitions/{{id}}?api-version=5.1 HTTP/1.1
+Authorization: {{authorizationToken}}
