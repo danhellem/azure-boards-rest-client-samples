@@ -1,7 +1,7 @@
-@id = 8
+@id = 77
 
 # GET WORK ITEM
-GET https://dev.azure.com/{{organization}}/{{project}}/_apis/wit/workitems/{{id}}?api-version=5.1 HTTP/1.1
+GET https://dev.azure.com/{{organization}}/{{project}}/_apis/wit/workitems/{{id}}?$expand=all&api-version=5.1 HTTP/1.1
 content-type: application/json
 Authorization: {{authorizationToken}}
 
@@ -55,5 +55,23 @@ Authorization: {{authorizationToken}}
     "op": "add",
     "path": "/fields/System.State",
     "value": "New"
+  }
+]
+
+### ADD A LINK
+PATCH https://dev.azure.com/{{organization}}/_apis/wit/workitems/{{id}}?api-version=5.1 HTTP/1.1
+content-type: application/json-patch+json
+Authorization: {{authorizationToken}}
+
+[
+  {
+    "op": "test",
+    "path": "/rev",
+    "value": 5
+  },
+  {
+    "op": "add",
+    "path": "/fields/System.State",
+    "value": "Closed"
   }
 ]
