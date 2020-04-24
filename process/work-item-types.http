@@ -1,0 +1,8 @@
+@processId = adcc42ab-9882-485e-a3ed-7678f01f66bc
+
+# LIST WORK ITEM TYPES
+GET https://dev.azure.com/{{organization}}/_apis/work/processes/{{processId}}/workitemtypes?$expand=All&api-version=6.0-preview.2 HTTP/1.1
+content-type: application/json
+Authorization: {{authorizationToken}}
+
+###
