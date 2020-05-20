@@ -1,4 +1,4 @@
-@id = 77
+@id = 106
 
 # GET WORK ITEM
 GET https://dev.azure.com/{{organization}}/{{project}}/_apis/wit/workitems/{{id}}?$expand=all&api-version=5.1 HTTP/1.1
@@ -7,9 +7,17 @@ Authorization: {{authorizationToken}}
 
 ###
 
+# GET WORK ITEMS
+
+GET https://dev.azure.com/{{organization}}/{{project}}/_apis/wit/workitems?ids=68,109&asOf=2020-05-15&$expand=All&api-version=5.1 HTTP/1.1
+content-type: application/json
+Authorization: {{authorizationToken}}
+
+###
+
 
 ### CREATE WORK ITEM
-POST https://dev.azure.com/{{organization}}/{{project}}/_apis/wit/workitems/$Bug?api-version=5.1 HTTP/1.1
+POST https://dev.azure.com/{{organization}}/{{project}}/_apis/wit/workitems/$Bug?api-version=5.0 HTTP/1.1
 content-type: application/json-patch+json
 Authorization: {{authorizationToken}}
 
@@ -22,8 +30,10 @@ Authorization: {{authorizationToken}}
   }
 ]
 
+###
+
 ### UPDATE A FIELD
-PATCH https://dev.azure.com/{{organization}}/_apis/wit/workitems/{{id}}?api-version=5.1 HTTP/1.1
+PATCH https://dev.azure.com/{{organization}}/_apis/wit/workitems/{{id}}?api-version=5.0 HTTP/1.1
 content-type: application/json-patch+json
 Authorization: {{authorizationToken}}
 
@@ -31,12 +41,12 @@ Authorization: {{authorizationToken}}
   {
     "op": "test",
     "path": "/rev",
-    "value": 5
+    "value": 1
   },
   {
     "op": "add",
-    "path": "/fields/System.State",
-    "value": "Closed"
+    "path": "/fields/System.Title",
+    "value": "hello World"
   }
 ]
 

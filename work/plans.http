@@ -1,0 +1,6 @@
+# GET FIELDS
+GET https://dev.azure.com/{{organization}}/{{project}}/_apis/work/plans?api-version=5.1 HTTP/1.1
+content-type: application/json
+Authorization: {{authorizationToken}}
+
+###
