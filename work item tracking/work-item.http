@@ -7,12 +7,23 @@ Authorization: {{authorizationToken}}
 
 ###
 
-# GET WORK ITEMS
-
-GET https://dev.azure.com/{{organization}}/{{project}}/_apis/wit/workitems?ids=68,109&asOf=2020-05-15&$expand=All&api-version=5.1 HTTP/1.1
+# GET WORK ITEMS BATCH
+POST https://dev.azure.com/{{organization}}/{{project}}/_apis/wit/workitemsbatch?api-version=5.1 HTTP/1.1
 content-type: application/json
 Authorization: {{authorizationToken}}
 
+{
+  "ids": [68, 109], 
+  "asOf": "2020-05-15",
+  "$expand": "All",
+  "errorPolicy": "omit"
+}
+###
+
+# GET WORK ITEMS
+GET https://dev.azure.com/{{organization}}/{{project}}/_apis/wit/workitems?ids=68,109&asOf=2020-05-15&$expand=All&api-version=5.1 HTTP/1.1
+content-type: application/json
+Authorization: {{authorizationToken}}
 ###
 
 
