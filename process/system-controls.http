@@ -1,0 +1,20 @@
+@processId = 9575d6ea-b90d-46b7-b9c2-a27570d43714
+@witRefName = AgileTemp.Bug
+
+# Disable Reason field
+PATCH https://dev.azure.com/{{organization}}/_apis/work/processes/{{processId}}/workItemTypes/{{witRefName}}/layout/systemcontrols/System.Reason?api-version=6.0-preview.1
+content-type: application/json
+Authorization: {{authorizationToken}}
+
+{
+  "visible": false
+}
+
+###
+
+# LIST SYSTEM CONTROLS
+GET https://dev.azure.com/{{organization}}/_apis/work/processes/{{processId}}/workItemTypes/{{witRefName}}/layout/systemcontrols?api-version=6.0-preview.1
+content-type: application/json
+Authorization: {{authorizationToken}}
+
+###

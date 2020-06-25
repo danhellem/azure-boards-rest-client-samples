@@ -1,4 +1,4 @@
-@startDateTime = 4/30/2020 12:00 AM
+@startDateTime = 6/24/2020 10:30:00 AM
 
 # GET REVISIONS
 GET https://dev.azure.com/{{organization}}/{{project}}/_apis/wit/reporting/workitemrevisions?startDateTime={{startDateTime}}&api-version=5.1 HTTP/1.1
