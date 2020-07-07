@@ -1,0 +1,13 @@
+# LIST PICKLISTS
+GET https://dev.azure.com/{{organization}}/_apis/work/processes/lists?api-version=6.0-preview.1
+content-type: application/json
+Authorization: {{authorizationToken}}
+
+###
+
+# CREATE PICKLISTS
+GET https://dev.azure.com/{{organization}}/_apis/work/processes/lists?api-version=6.0-preview.1
+content-type: application/json
+Authorization: {{authorizationToken}}
+
+###

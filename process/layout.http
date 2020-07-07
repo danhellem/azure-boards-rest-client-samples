@@ -1,0 +1,14 @@
+@processId = 80fef8b9-7713-48e4-8b15-c8182008633b
+@witRefName = Agile-Temp.UserStory
+
+# GET LAYOUT
+GET https://dev.azure.com/{{organization}}/_apis/work/processes/{{processId}}/workItemTypes/{{witRefName}}/layout?api-version=5.1-preview.1
+content-type: application/json
+Authorization: {{authorizationToken}}
+###
+
+# GET RULES
+GET https://dev.azure.com/{{organization}}/_apis/work/processes/{{processId}}/workItemTypes/{{witRefName}}/rules?api-version=5.1-preview.2
+content-type: application/json
+Authorization: {{authorizationToken}}
+###

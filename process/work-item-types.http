@@ -1,4 +1,4 @@
-@processId = 9575d6ea-b90d-46b7-b9c2-a27570d43714
+@processId = 80fef8b9-7713-48e4-8b15-c8182008633b
 
 # LIST WORK ITEM TYPES
 GET https://dev.azure.com/{{organization}}/_apis/work/processes/{{processId}}/workitemtypes?$expand=All&api-version=6.0-preview.2 HTTP/1.1
